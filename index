@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<div style="font-size:13px; opacity:0.7; margin-bottom:10px;">
+🔒 Acceso limitado • Usuarios activos ahora
+</div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VegasBett - Acceso Privado</title>
+  
+  <!-- META PIXEL -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '24100361799629508');
+    fbq('track', 'PageView');
+  </script>
+
+  <style>
+    :root {
+      --bg-dark: #05080a; 
+      --bg-card: #0d1621; 
+      --gold: #d4af37; 
+      --gold-light: #f1d592;
+      --text: #ffffff; 
+      --ok: #25D366;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 420px;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 110px;
+      margin: 20px auto;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: 18px;
+      padding: 30px 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+    }
+
+    h1 {
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--gold-light);
+      letter-spacing: 1px;
+    }
+
+    .highlight {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--gold);
+      margin: 10px 0;
+    }
+
+    p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .mini-proof {
+      font-size: 13px;
+      margin: 15px 0;
+      opacity: 0.8;
+    }
+
+    .btn {
+      display: block;
+      margin-top: 20px;
+      padding: 18px;
+      background: linear-gradient(135deg, #25D366, #128C7E);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+    }
+
+    ul {
+      text-align: left;
+      padding: 0;
+      margin-top: 25px;
+      list-style: none;
+    }
+
+    ul li {
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    ul li::before {
+      content: "✔";
+      color: var(--gold);
+      margin-right: 8px;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 11px;
+      opacity: 0.5;
+    }
+  </style>
+
+  <script>
+    function sendConversion() {
+      try {
+        fbq('track', 'Lead', {
+          content_name: 'Acceso Plataforma',
+          value: 1000,
+          currency: 'ARS'
+        });
+      } catch(e) {}
+
+      const msg = encodeURIComponent("Hola! Vi el acceso a la plataforma y quiero entender cómo funciona");
+
+      setTimeout(() => {
+        window.location.href = "https://api.whatsapp.com/send?phone=5492234225672&text=" + msg;
+      }, 400);
+
+      return false;
+    }
+  </script>
+</head>
+
+<body>
+
+<div class="container">
+
+  <img src="logo.png" class="logo" alt="VegasBett">
+
+  <div class="card">
+
+    <h1>Acceso a Plataforma Privada</h1>
+
+    <div class="highlight">Jugá desde tu celular</div>
+
+    <p>Accedé en segundos y descubrí una experiencia distinta.</p>
+
+    <div class="mini-proof">
+      Miles de usuarios ya están ingresando todos los días.
+    </div>
+
+    <a href="#" class="btn" onclick="return sendConversion()">QUIERO ACCESO</a>
+
+    <a href="#" class="btn btn-secondary" onclick="return sendConversion()">VER CÓMO FUNCIONA</a>
+
+    <ul>
+      <li>Acceso inmediato sin descargar apps</li>
+      <li>Atención personalizada</li>
+      <li>Compatible con cualquier celular</li>
+      <li>Soporte activo todos los días</li>
+    </ul>
+
+  </div>
+
+  <div class="footer">
+    +18 | Jugar con responsabilidad
+  </div>
+
+</div>
+
+</body>
+</html>
