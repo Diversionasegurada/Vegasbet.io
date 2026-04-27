@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VegasBett - Acceso Privado</title>
 
-  <!-- META PIXEL -->
   <script>
     !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
@@ -137,18 +136,35 @@
 
   <script>
     function sendConversion() {
+      // 1. Ejecución del evento de Meta Pixel
       try {
         fbq('track', 'Lead', {
           content_name: 'Acceso Plataforma',
           value: 1000,
           currency: 'ARS'
         });
-      } catch(e) {}
+      } catch(e) {
+        console.log("Pixel error:", e);
+      }
+
+      // 2. Lógica de rotación por horario
+      const ahora = new Date();
+      const horaActual = ahora.getHours(); 
+      let nroWhatsApp;
+
+      // De 08:00 a 19:59 (antes de las 20hs)
+      if (horaActual >= 8 && horaActual < 20) {
+        nroWhatsApp = "5492234225672";
+      } else {
+        // De 20:00 a 07:59
+        nroWhatsApp = "5492235393540";
+      }
 
       const msg = encodeURIComponent("Hola! Vi el acceso a la plataforma y quiero entender cómo funciona");
 
+      // 3. Redirección con retraso para asegurar que el Pixel dispare
       setTimeout(() => {
-        window.location.href = "https://api.whatsapp.com/send?phone=5492234225672&text=" + msg;
+        window.location.href = "https://api.whatsapp.com/send?phone=" + nroWhatsApp + "&text=" + msg;
       }, 400);
 
       return false;
